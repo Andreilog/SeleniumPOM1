@@ -13,30 +13,22 @@ namespace DemoWebApp.Tests
         private readonly IWebDriver _driver;
         private const string PageUri = @"http://localhost:40077/Home/StartLoanApplication";
 
-        [FindsBy(How = How.CssSelector, Using = "div.validation-summary-errors ul li")]
-        private IWebElement _errorText;
+        private IWebElement _errorText => _driver.FindElement(By.CssSelector("div.validation-summary-errors ul li"));
 
-        [FindsBy(How = How.Id, Using = "Loan")]
-        private IWebElement _existingLoan;
+        private IWebElement _existingLoan => _driver.FindElement(By.Id("Loan"));
 
-        [FindsBy(How = How.Id, Using = "FirstName")]
-        private IWebElement _firstName;
+        private IWebElement _firstName => _driver.FindElement(By.Name("FirstName"));
 
-        [FindsBy(How = How.Id, Using = "LastName")]
-        private IWebElement _secondName;
+        private IWebElement _secondName => _driver.FindElement(By.Name("LastName"));
 
-        [FindsBy(How = How.CssSelector, Using = ".btn.btn-primary")]
-        private IWebElement _submit;
+        private IWebElement _submit => _driver.FindElement(By.CssSelector(".btn.btn-primary"));
 
-        [FindsBy(How = How.Name, Using = "TermsAcceptance")]
-        private IWebElement _termsAcceptance;
+        private IWebElement _termsAcceptance => _driver.FindElement(By.Name("TermsAcceptance"));
 
 
         public LoanApplicationPage(IWebDriver driver)
         {
             _driver = driver;
-
-            PageFactory.InitElements(_driver, this);
         }
 
         public static LoanApplicationPage NavigateTo(IWebDriver driver)

@@ -30,6 +30,7 @@ namespace DemoWebApp.Tests
             {
                 driver.Manage().Window.Maximize();
 
+                /*
                 driver.Navigate().GoToUrl("http://localhost:40077/Home/StartLoanApplication");
 
                 IWebElement firstNameInput = driver.FindElement(By.Id("FirstName"));
@@ -48,10 +49,18 @@ namespace DemoWebApp.Tests
 
 
                 IWebElement confirmationNameSpan = driver.FindElement(By.Id("firstName"));
+                */
 
+                var page = LoanApplicationPage.NavigateTo(driver);
+                page.FirstName = "Sarah";
+                page.SecondName = "Smith";
+                page.SelectExistingLoan();
+                page.AcceptTermsAndConditions();
+                var confPage = page.SubmitApplication();
+                //confPage.FirstName = "Sarah";
 
-                string confirmationName = confirmationNameSpan.Text;
-
+                //string confirmationName = confirmationNameSpan.Text;
+                var confirmationName = confPage.FirstName;
 
                 Assert.Equal("Sarah", confirmationName);
             }

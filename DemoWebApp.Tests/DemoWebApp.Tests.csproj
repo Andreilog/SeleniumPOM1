@@ -71,13 +71,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationConfirmationPage.cs" />
+    <Compile Include="Pages\ApplicationConfirmationPage.cs" />
     <Compile Include="LoanApplication.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LoanApplication.feature</DependentUpon>
     </Compile>
-    <Compile Include="LoanApplicationPage.cs" />
+    <Compile Include="Pages\LoanApplicationPage.cs" />
     <Compile Include="LoanApplicationSteps.cs" />
     <Compile Include="LoanApplicationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
